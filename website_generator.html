@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SiteSketch AI Website Generator - Create stunning websites with AI-powered design tools.">
+    <title>Website Generator - SiteSketch AI</title>
+    <link rel="canonical" href="https://sitesketch.com/website_generator.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-base: #0B1112;
+            --color-elevated: #0F1A1A;
+            --color-card: #122324;
+            --color-border: #1F3A35;
+            --color-accent: #26D07C;
+            --color-accent-hover: #1FB46B;
+            --color-accent-tint: rgba(38, 208, 124, 0.12);
+            --color-text-primary: #EAF5F0;
+            --color-text-secondary: #A6B8B1;
+            --color-text-disabled: #6E807A;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-base);
+            color: var(--color-text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 8px 16px;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 8px;
+            left: 8px;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            background: var(--color-elevated);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-logo .ai-text {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+            flex: 1;
+            margin-left: 48px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: var(--color-text-primary);
+            padding: 8px 20px;
+            height: 40px;
+        }
+
+        .btn-login:hover {
+            color: var(--color-accent);
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 12px 24px;
+            height: 44px;
+            box-shadow: 0 0 24px rgba(38, 208, 124, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            box-shadow: 0 0 32px rgba(38, 208, 124, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 64px 24px 32px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+            margin-bottom: 16px;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        .generator-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        /* Preview Panel */
+        .preview-panel {
+            background: rgba(31, 58, 53, 0.3);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .preview-browser {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .browser-chrome {
+            background: var(--color-elevated);
+            border-bottom: 1px solid var(--color-border);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-border);
+        }
+
+        .browser-address {
+            flex: 1;
+            background: rgba(11, 17, 18, 0.5);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            padding: 4px 12px;
+            font-size: 12px;
+            color: var(--color-text-disabled);
+            text-align: center;
+        }
+
+        .preview-content {
+            width: 100%;
+            height: 600px;
+            background: var(--color-base);
+            overflow: auto;
+        }
+
+        .preview-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Section Selector */
+        .section-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .section-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .section-card:hover {
+            border-color: var(--color-accent);
+            background: rgba(18, 35, 36, 0.8);
+        }
+
+        .section-card:hover::before {
+            opacity: 1;
+        }
+
+        .section-card.selected {
+            border-color: var(--color-accent);
+            background: var(--color-accent-tint);
+        }
+
+        .section-card.selected::before {
+            opacity: 1;
+        }
+
+        .section-icon {
+            width: 100%;
+            aspect-ratio: 1.5;
+            background: rgba(15, 26, 26, 0.6);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .section-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--color-text-disabled);
+        }
+
+        .section-card.selected .section-icon svg {
+            stroke: var(--color-accent);
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            text-align: center;
+        }
+
+        .section-card.selected .section-label {
+            color: var(--color-accent);
+        }
+
+        /* Controls Panel */
+        .controls-panel {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .controls-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .control-group {
+            margin-bottom: 24px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .control-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            background: rgba(31, 58, 53, 0.5);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid var(--color-border);
+        }
+
+        .toggle-switch.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .toggle-knob {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: var(--color-text-primary);
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .toggle-switch.active .toggle-knob {
+            transform: translateX(22px);
+        }
+
+        .dropdown-select {
+            width: 100%;
+            background: rgba(15, 26, 26, 0.6);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 15px;
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A6B8B1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 40px;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-select:hover {
+            border-color: var(--color-accent);
+        }
+
+        .dropdown-select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px var(--color-accent-tint);
+        }
+
+        /* Generate Button */
+        .generate-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn-generate {
+            width: 100%;
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-sans);
+            box-shadow: 0 0 24px rgba(38, 208, 124, 0.3);
+        }
+
+        .btn-generate:hover {
+            background: var(--color-accent-hover);
+            box-shadow: 0 0 32px rgba(38, 208, 124, 0.4);
+        }
+
+        .btn-generate:active {
+            transform: scale(0.98);
+        }
+
+        .btn-regenerate {
+            width: 100%;
+            background: rgba(31, 58, 53, 0.5);
+            color: var(--color-text-primary);
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-sans);
+        }
+
+        .btn-regenerate:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        .btn-regenerate:active {
+            transform: scale(0.98);
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-base);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            display: none;
+        }
+
+        .btn-generate.loading .loading-spinner {
+            display: block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Generated Layouts */
+        .layouts-section {
+            margin-top: 48px;
+        }
+
+        .layouts-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 24px;
+        }
+
+        .layouts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .layout-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .layout-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .layout-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .layout-card:hover::before {
+            opacity: 1;
+        }
+
+        .layout-preview {
+            width: 100%;
+            aspect-ratio: 1.5;
+            background: rgba(15, 26, 26, 0.6);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .layout-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-elevated);
+            border-top: 1px solid var(--color-border);
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--color-text-secondary);
+        }
+
+        .footer-social a:hover svg {
+            stroke: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .generator-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .section-selector {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .layouts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 12px 16px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 16px;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .hero {
+                padding: 48px 16px 32px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .content-wrapper {
+                padding: 0 16px 48px;
+            }
+
+            .section-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="nav-wrapper">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-logo" aria-label="SiteSketch AI Home">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L26 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16V28" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L6 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>SiteSketch <span class="ai-text">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="brand_setup.html">Brand Setup</a></li>
+                <li><a href="brand_assets.html">Brand Assets</a></li>
+                <li><a href="website_generator.html" class="active">Website Generator</a></li>
+                <li><a href="update_website.html">Update Website</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-login" aria-label="Login to your account">Login</button>
+                <button class="btn btn-primary" aria-label="Get started with SiteSketch AI">Get Started</button>
+            </div>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="hero" aria-labelledby="page-heading">
+            <h1 id="page-heading">Website Generator</h1>
+        </section>
+
+        <div class="content-wrapper">
+            <div class="generator-layout">
+                <!-- Preview Panel -->
+                <div class="preview-panel">
+                    <div class="preview-browser">
+                        <div class="browser-chrome">
+                            <div class="browser-dots">
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                                <span class="browser-dot"></span>
+                            </div>
+                            <div class="browser-address">website-url.com</div>
+                        </div>
+                        <div class="preview-content" id="previewContent">
+                            <img src="https://im.runware.ai/image/ws/2/ii/0a9b132a-4dd8-4e54-a231-913101175b53.jpg" alt="Website preview">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Selector -->
+                <aside class="section-selector" aria-label="Page sections">
+                    <div class="section-card" role="button" tabindex="0" data-section="hero" aria-label="Hero section">
+                        <div class="section-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <rect x="7" y="7" width="10" height="4"/>
+                            </svg>
+                        </div>
+                        <div class="section-label">Hero</div>
+                    </div>
+
+                    <div class="section-card" role="button" tabindex="0" data-section="features" aria-label="Features section">
+                        <div class="section-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                            </svg>
+                        </div>
+                        <div class="section-label">Features</div>
+                    </div>
+
+                    <div class="section-card" role="button" tabindex="0" data-section="case-studies" aria-label="Case studies section">
+                        <div class="section-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                            </svg>
+                        </div>
+                        <div class="section-label">Case studies</div>
+                    </div>
+
+                    <div class="section-card" role="button" tabindex="0" data-section="pricing" aria-label="Pricing section">
+                        <div class="section-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 3v18"/>
+                            </svg>
+                        </div>
+                        <div class="section-label">Pricing</div>
+                    </div>
+
+                    <div class="section-card" role="button" tabindex="0" data-section="footer" aria-label="Footer section">
+                        <div class="section-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 15h18"/>
+                            </svg>
+                        </div>
+                        <div class="section-label">Footer</div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Apply Brand Assets</span>
+                        <div class="toggle-switch active" role="switch" aria-checked="true" aria-label="Apply brand assets" tabindex="0">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="styleSelect" class="control-label">
+                        <span>Style:</span>
+                    </label>
+                    <select id="styleSelect" class="dropdown-select" aria-label="Select design style">
+                        <option value="glass-dark">Glass dark</option>
+                        <option value="minimal-light">Minimal light</option>
+                        <option value="modern-gradient">Modern gradient</option>
+                        <option value="classic-corporate">Classic corporate</option>
+                    </select>
+                </div>
+
+                <div class="generate-section">
+                    <button class="btn-generate" aria-label="Generate new layout">
+                        <span class="loading-spinner"></span>
+                        <span class="btn-text">Generate layout</span>
+                    </button>
+                    <button class="btn-regenerate" aria-label="Regenerate sections">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                        </svg>
+                        Regenerate sections
+                    </button>
+                </div>
+            </div>
+
+            <!-- Generated Layouts -->
+            <section class="layouts-section" aria-labelledby="layouts-heading">
+                <h2 id="layouts-heading" class="layouts-header">Generated layouts</h2>
+                <div class="layouts-grid">
+                    <div class="layout-card" role="button" tabindex="0" aria-label="View layout variation 1">
+                        <div class="layout-preview">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="Layout variation 1">
+                        </div>
+                    </div>
+
+                    <div class="layout-card" role="button" tabindex="0" aria-label="View layout variation 2">
+                        <div class="layout-preview">
+                            <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&h=400&fit=crop" alt="Layout variation 2">
+                        </div>
+                    </div>
+
+                    <div class="layout-card" role="button" tabindex="0" aria-label="View layout variation 3">
+                        <div class="layout-preview">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="Layout variation 3" style="filter: hue-rotate(180deg);">
+                        </div>
+                    </div>
+
+                    <div class="layout-card" role="button" tabindex="0" aria-label="View layout variation 4">
+                        <div class="layout-preview">
+                            <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&h=400&fit=crop" alt="Layout variation 4" style="filter: hue-rotate(90deg);">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+            </ul>
+            <ul class="footer-social">
+                <li>
+                    <a href="https://twitter.com" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Active navigation link
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+        // Section card selection
+        document.querySelectorAll('.section-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                const section = this.getAttribute('data-section');
+                console.log('Selected section:', section);
+            });
+
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Toggle switch
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const isActive = this.classList.toggle('active');
+                this.setAttribute('aria-checked', isActive);
+                console.log('Brand assets:', isActive ? 'enabled' : 'disabled');
+            });
+
+            toggle.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Style selector
+        document.getElementById('styleSelect')?.addEventListener('change', function(e) {
+            console.log('Selected style:', e.target.value);
+        });
+
+        // Generate button
+        document.querySelector('.btn-generate')?.addEventListener('click', function() {
+            this.classList.add('loading');
+            this.querySelector('.btn-text').textContent = 'Generating...';
+            
+            setTimeout(() => {
+                this.classList.remove('loading');
+                this.querySelector('.btn-text').textContent = 'Generate layout';
+                console.log('Layout generated');
+            }, 2500);
+        });
+
+        // Regenerate button
+        document.querySelector('.btn-regenerate')?.addEventListener('click', function() {
+            console.log('Regenerating sections...');
+            this.style.opacity = '0.6';
+            setTimeout(() => {
+                this.style.opacity = '1';
+            }, 500);
+        });
+
+        // Layout cards
+        document.querySelectorAll('.layout-card').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Layout card clicked');
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+    </script>
+</body>
+</html>
