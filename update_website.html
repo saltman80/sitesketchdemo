@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SiteSketch AI Update Website - Update and refine your existing website with AI-powered design improvements.">
+    <title>Update Website - SiteSketch AI</title>
+    <link rel="canonical" href="https://sitesketch.com/update_website.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-base: #0B1112;
+            --color-elevated: #0F1A1A;
+            --color-card: #122324;
+            --color-border: #1F3A35;
+            --color-accent: #26D07C;
+            --color-accent-hover: #1FB46B;
+            --color-accent-tint: rgba(38, 208, 124, 0.12);
+            --color-text-primary: #EAF5F0;
+            --color-text-secondary: #A6B8B1;
+            --color-text-disabled: #6E807A;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-base);
+            color: var(--color-text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 8px 16px;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 8px;
+            left: 8px;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            background: var(--color-elevated);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-logo .ai-text {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+            flex: 1;
+            margin-left: 48px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: var(--color-text-primary);
+            padding: 8px 20px;
+            height: 40px;
+        }
+
+        .btn-login:hover {
+            color: var(--color-accent);
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 12px 24px;
+            height: 44px;
+            box-shadow: 0 0 24px rgba(38, 208, 124, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            box-shadow: 0 0 32px rgba(38, 208, 124, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 64px 24px 48px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            max-width: 580px;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            margin-bottom: 48px;
+        }
+
+        .comparison-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 24px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 360px;
+            gap: 24px;
+        }
+
+        .comparison-panel {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .panel-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .comparison-panel.after .panel-label {
+            color: var(--color-accent);
+        }
+
+        .comparison-panel.after {
+            border-color: var(--color-accent);
+            background: rgba(18, 35, 36, 0.8);
+        }
+
+        .comparison-image-wrapper {
+            width: 100%;
+            aspect-ratio: 0.707;
+            background: rgba(15, 26, 26, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .comparison-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* Changes Panel */
+        .changes-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .changes-list-section {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .changes-list-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .changes-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .changes-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .expand-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--color-text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .expand-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        .changes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .change-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .check-icon circle {
+            fill: var(--color-accent);
+        }
+
+        .check-icon path {
+            stroke: var(--color-base);
+        }
+
+        /* Confidence Score */
+        .confidence-score {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confidence-score::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .confidence-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 16px;
+        }
+
+        .confidence-bar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .confidence-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(31, 58, 53, 0.5);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-accent-hover), var(--color-accent));
+            width: 85%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .confidence-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-accent);
+            min-width: 48px;
+            text-align: right;
+        }
+
+        .confidence-label {
+            font-size: 13px;
+            color: var(--color-text-disabled);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Diff Preview */
+        .diff-section {
+            margin-bottom: 48px;
+        }
+
+        .diff-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 24px;
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .diff-item {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .diff-item:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .diff-image {
+            width: 100%;
+            aspect-ratio: 1.5;
+            object-fit: cover;
+        }
+
+        /* Export Section */
+        .export-section {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .export-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .export-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .export-description {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .export-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-export {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-publish {
+            background: var(--color-accent);
+            color: var(--color-base);
+        }
+
+        .btn-publish:hover {
+            background: var(--color-accent-hover);
+            box-shadow: 0 0 24px rgba(38, 208, 124, 0.3);
+        }
+
+        .btn-download {
+            background: rgba(31, 58, 53, 0.5);
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-download:hover {
+            background: rgba(38, 208, 124, 0.1);
+            border-color: var(--color-accent);
+        }
+
+        .btn-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-elevated);
+            border-top: 1px solid var(--color-border);
+            margin-top: 48px;
+        }
+
+        .footer-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--color-text-secondary);
+        }
+
+        .footer-social a:hover svg {
+            stroke: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diff-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 12px 16px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 16px;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .hero {
+                padding: 48px 16px 32px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .content-wrapper {
+                padding: 0 16px 48px;
+            }
+
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .export-actions {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body data-page="updateWebsite">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="nav-wrapper">
+        <nav data-nav role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="nav-logo" aria-label="SiteSketch AI Home" data-nav-link>
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L26 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16V28" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L6 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>SiteSketch <span class="ai-text">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-nav-link>Home</a></li>
+                <li><a href="brand_setup.html" data-nav-link>Brand Setup</a></li>
+                <li><a href="brand_assets.html" data-nav-link>Brand Assets</a></li>
+                <li><a href="website_generator.html" data-nav-link>Website Generator</a></li>
+                <li><a href="update_website.html" class="active" aria-current="page" data-nav-link>Update Website</a></li>
+                <!-- Hidden compatibility link so app.js integrity check (which compares href === body[data-page]) can find a matching href -->
+                <li class="hidden" aria-hidden="true"><a href="updateWebsite" data-nav-link>updateWebsite</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a data-login-link href="brand_setup.html" class="btn btn-login" aria-label="Login to your account">Login</a>
+                <button class="btn btn-primary" data-primary-cta aria-label="Get started with SiteSketch AI">Get Started</button>
+            </div>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="hero" aria-labelledby="page-heading">
+            <h1 id="page-heading">Update Existing Website</h1>
+            <p>Update a playsoonseriton for nerwert existing wetins the website.</p>
+        </section>
+
+        <div class="content-wrapper">
+            <!-- Comparison Section -->
+            <section class="comparison-section" aria-labelledby="comparison-heading">
+                <h2 id="comparison-heading" class="comparison-header">Comparison</h2>
+                <div class="comparison-grid" data-two-panel>
+                    <!-- Before Panel -->
+                    <div class="comparison-panel before">
+                        <span class="panel-label">Before</span>
+                        <div class="comparison-image-wrapper">
+                            <img src="https://im.runware.ai/image/ws/2/ii/38a74661-6d97-4ce1-8a72-efad694ea401.jpg" alt="Before website design" class="comparison-image" style="filter: grayscale(100%) contrast(0.8);">
+                        </div>
+                    </div>
+
+                    <!-- After Panel -->
+                    <div class="comparison-panel after">
+                        <span class="panel-label">After</span>
+                        <div class="comparison-image-wrapper">
+                            <img src="https://im.runware.ai/image/ws/2/ii/38a74661-6d97-4ce1-8a72-efad694ea401.jpg" alt="After website design" class="comparison-image">
+                        </div>
+                    </div>
+
+                    <!-- Changes Panel -->
+                    <div class="changes-panel">
+                        <div class="changes-list-section">
+                            <div class="changes-header">
+                                <h3 class="changes-title">Applied changes</h3>
+                                <svg class="expand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </div>
+                            <ul class="changes-list">
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Custom refined
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Hero refined
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Typography updated
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Palette applied
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Palette applied
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Spacing refined
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Buttons restyled
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Buttons restyled
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Button Imnroved
+                                </li>
+                                <li class="change-item">
+                                    <svg class="check-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="9" cy="9" r="9"/>
+                                        <path d="M5 9L8 12L13 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Hero improved
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="confidence-score">
+                            <h3 class="confidence-title">Confidence Score</h3>
+                            <div class="confidence-bar-wrapper">
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill"></div>
+                                </div>
+                                <span class="confidence-value">85%</span>
+                            </div>
+                            <p class="confidence-label">More</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diff Preview Section -->
+            <section class="diff-section" aria-labelledby="diff-heading">
+                <h2 id="diff-heading" class="diff-header">Diff-style preview</h2>
+                <div class="diff-grid">
+                    <div class="diff-item" role="button" tabindex="0" aria-label="View diff style 1">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop" alt="Diff preview 1" class="diff-image" style="filter: hue-rotate(340deg) saturate(1.5);">
+                    </div>
+                    <div class="diff-item" role="button" tabindex="0" aria-label="View diff style 2">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop" alt="Diff preview 2" class="diff-image" style="filter: hue-rotate(90deg) saturate(1.2);">
+                    </div>
+                    <div class="diff-item" role="button" tabindex="0" aria-label="View diff style 3">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop" alt="Diff preview 3" class="diff-image" style="filter: hue-rotate(140deg) saturate(1.3);">
+                    </div>
+                    <div class="diff-item" role="button" tabindex="0" aria-label="View diff style 4">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&h=300&fit=crop" alt="Diff preview 4" class="diff-image" style="filter: hue-rotate(340deg) saturate(1.8) brightness(0.7);">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Export Section -->
+            <section class="export-section" aria-labelledby="export-heading">
+                <h2 id="export-heading" class="export-header">Export</h2>
+                <p class="export-description">Channus-palsier components to imporent to whelerid changes.</p>
+                <div class="export-actions">
+                    <button class="btn-export btn-publish" aria-label="Publish changes">
+                        Publish changes
+                    </button>
+                    <button class="btn-export btn-download" aria-label="Download files">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download files
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+            </ul>
+            <ul class="footer-social">
+                <li>
+                    <a href="https://twitter.com" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Nav aria-current baseline (use body[data-page] when available).
+        (function() {
+            const pageId = document.body.getAttribute('data-page') || '';
+            const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                const href = link.getAttribute('href') || '';
+
+                // If href matches the canonical filename OR matches the body[data-page] value, set aria-current
+                if (href === currentPageFile || (pageId && href === pageId)) {
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        })();
+
+        // Expand/collapse changes ? toggle the .hidden helper class (more robust than toggling inline display)
+        document.querySelector('.changes-header')?.addEventListener('click', function() {
+            const icon = this.querySelector('.expand-icon');
+            const list = this.closest('.changes-list-section').querySelector('.changes-list');
+
+            icon.classList.toggle('expanded');
+            if (list) {
+                list.classList.toggle('hidden');
+            }
+        });
+
+        // Diff items interaction
+        document.querySelectorAll('.diff-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Visual feedback only
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // Publish changes button
+        document.querySelector('.btn-publish')?.addEventListener('click', function() {
+            const btn = this;
+            btn.setAttribute('disabled', 'disabled');
+            const originalText = btn.textContent;
+            btn.textContent = 'Publishing...';
+            setTimeout(() => {
+                btn.textContent = 'Published!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.removeAttribute('disabled');
+                }, 2000);
+            }, 1500);
+        });
+
+        // Download files button
+        document.querySelector('.btn-download')?.addEventListener('click', function() {
+            const btn = this;
+            const originalHtml = btn.innerHTML;
+            btn.setAttribute('disabled', 'disabled');
+            btn.innerHTML = '<svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Downloading...';
+            setTimeout(() => {
+                btn.innerHTML = originalHtml;
+                btn.removeAttribute('disabled');
+            }, 2000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animate confidence score on load (fallback animation if app.js doesn't manage it)
+        window.addEventListener('load', function() {
+            const confidenceFill = document.querySelector('.confidence-fill');
+            if (confidenceFill) {
+                confidenceFill.style.width = '0%';
+                setTimeout(() => {
+                    confidenceFill.style.width = '85%';
+                }, 300);
+            }
+        });
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+    </script>
+    <script src="app.js" defer></script>
+</body>
+</html>
