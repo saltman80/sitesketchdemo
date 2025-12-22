@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SiteSketch AI Brand Assets - View and download your AI-generated brand identity assets including logos, color palettes, typography, and social media mockups.">
+    <title>Brand Assets - SiteSketch AI</title>
+    <link rel="canonical" href="https://sitesketch.com/brand_assets.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-base: #0B1112;
+            --color-elevated: #0F1A1A;
+            --color-card: #122324;
+            --color-border: #1F3A35;
+            --color-accent: #26D07C;
+            --color-accent-hover: #1FB46B;
+            --color-accent-tint: rgba(38, 208, 124, 0.12);
+            --color-text-primary: #EAF5F0;
+            --color-text-secondary: #A6B8B1;
+            --color-text-disabled: #6E807A;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-base);
+            color: var(--color-text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 8px 16px;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 8px;
+            left: 8px;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            background: var(--color-elevated);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-logo .ai-text {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+            flex: 1;
+            margin-left: 48px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: var(--color-text-primary);
+            padding: 8px 20px;
+            height: 40px;
+        }
+
+        .btn-login:hover {
+            color: var(--color-accent);
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 12px 24px;
+            height: 44px;
+            box-shadow: 0 0 24px rgba(38, 208, 124, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            box-shadow: 0 0 32px rgba(38, 208, 124, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            padding: 12px 24px;
+            height: 44px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 48px 24px 32px;
+        }
+
+        .hero-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero-header h1 {
+            font-size: 44px;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+        }
+
+        .status-badge {
+            background: var(--color-accent-tint);
+            border: 1px solid rgba(38, 208, 124, 0.35);
+            color: var(--color-accent);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        /* Main Content Grid */
+        .assets-container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .assets-main {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Section Styles */
+        .asset-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .section-label {
+            background: var(--color-accent-tint);
+            border: 1px solid rgba(38, 208, 124, 0.35);
+            color: var(--color-accent);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Logo Previews Grid */
+        .logo-grid {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.3), transparent);
+        }
+
+        .logo-variants {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .logo-card {
+            background: rgba(15, 26, 26, 0.6);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            min-height: 160px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .logo-card:hover {
+            background: rgba(15, 26, 26, 0.8);
+            border-color: var(--color-accent);
+        }
+
+        .logo-card svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        .logo-card .logo-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+
+        /* Color Palettes */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .palette-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .palette-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.3), transparent);
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .color-swatch {
+            flex: 1;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            border: 1px solid rgba(31, 58, 53, 0.5);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 8px;
+            position: relative;
+        }
+
+        .color-swatch span {
+            font-size: 10px;
+            font-weight: 500;
+            color: rgba(234, 245, 240, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Typography */
+        .typography-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .typography-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .typography-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.3), transparent);
+        }
+
+        .typography-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .typography-header h3 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .typography-header .type-badge {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-accent);
+        }
+
+        .typography-sample {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .type-heading {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--color-text-primary);
+        }
+
+        .type-subheading {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+
+        .type-detail {
+            font-size: 13px;
+            color: var(--color-text-disabled);
+        }
+
+        .type-sample-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            margin-top: 8px;
+        }
+
+        .type-body-text {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Social Mockups */
+        .mockups-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .mockup-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.3), transparent);
+        }
+
+        .mockup-header {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .mockup-preview {
+            background: linear-gradient(135deg, rgba(38, 208, 124, 0.15) 0%, rgba(11, 17, 18, 0.8) 100%);
+            border-radius: 12px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            min-height: 240px;
+        }
+
+        .mockup-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .mockup-logo svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mockup-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .mockup-content p {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Summary Sidebar */
+        .summary-sidebar {
+            position: sticky;
+            top: 88px;
+        }
+
+        .summary-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.3), transparent);
+        }
+
+        .summary-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .summary-card p {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .summary-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-download {
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 12px 20px;
+            height: 44px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-download:hover {
+            background: var(--color-accent-hover);
+        }
+
+        .btn-download svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .btn-export {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            padding: 12px 20px;
+            height: 44px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-export:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-top: 1px solid var(--color-border);
+            margin-top: 16px;
+        }
+
+        .theme-toggle span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background: var(--color-border);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .toggle-switch.active {
+            background: var(--color-accent);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background: var(--color-text-primary);
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(24px);
+        }
+
+        /* Support new canonical state class .is-on (keeps visuals identical to .active) */
+        .toggle-switch.is-on {
+            background: var(--color-accent);
+        }
+
+        .toggle-switch.is-on::after {
+            transform: translateX(24px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-elevated);
+            border-top: 1px solid var(--color-border);
+            margin-top: 64px;
+        }
+
+        .footer-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--color-text-secondary);
+        }
+
+        .footer-social a:hover svg {
+            stroke: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 12px 16px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 16px;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .hero-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-header h1 {
+                font-size: 32px;
+            }
+
+            .assets-container {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-sidebar {
+                position: static;
+            }
+
+            .logo-variants {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .palette-grid,
+            .typography-grid,
+            .mockups-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body data-page="brandAssets">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="nav-wrapper">
+        <nav role="navigation" aria-label="Main navigation" data-nav>
+            <a href="index.html" class="nav-logo" aria-label="SiteSketch AI Home">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L26 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16V28" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L6 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>SiteSketch <span class="ai-text">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-nav-link>Home</a></li>
+                <li><a href="brand_setup.html" data-nav-link>Brand Setup</a></li>
+                <li><a href="brand_assets.html" class="active" data-nav-link>Brand Assets</a></li>
+                <li><a href="website_generator.html" data-nav-link>Website Generator</a></li>
+                <li><a href="update_website.html" data-nav-link>Update Website</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a class="btn btn-login" href="brand_setup.html" data-login-link aria-label="Login to your account">Login</a>
+                <button class="btn btn-primary" aria-label="Get started with SiteSketch AI" data-primary-cta>Get Started</button>
+            </div>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="hero-section">
+            <div class="hero-header">
+                <h1>Brand Asset Generator</h1>
+                <span class="status-badge">Generated</span>
+            </div>
+        </section>
+
+        <div class="assets-container">
+            <div class="assets-main">
+                <!-- Logo Previews Section -->
+                <section class="asset-section" aria-labelledby="logo-previews-heading">
+                    <div class="section-header">
+                        <h2 id="logo-previews-heading">Logo Previews</h2>
+                    </div>
+                    <div class="logo-grid">
+                        <div class="logo-variants">
+                            <div class="logo-card" data-card="monochrome">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M32 8L12 19V45L32 56L52 45V19L32 8Z" stroke="#EAF5F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M32 32L52 20" stroke="#EAF5F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M32 32V56" stroke="#EAF5F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M32 32L12 20" stroke="#EAF5F0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="logo-label">Monochrome</span>
+                            </div>
+
+                            <div class="logo-card" data-card="emerald-line" style="background: rgba(38, 208, 124, 0.08);">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M32 8L12 19V45L32 56L52 45V19L32 8Z" stroke="#26D07C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M32 32L52 20" stroke="#26D07C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M32 32V56" stroke="#26D07C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M32 32L12 20" stroke="#26D07C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="logo-label">Emerald line</span>
+                            </div>
+
+                            <div class="logo-card" data-card="vector-marks">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 16L32 8L44 16V32L32 40L20 32V16Z" fill="rgba(38, 208, 124, 0.2)" stroke="#26D07C" stroke-width="2"/>
+                                    <path d="M32 24L44 16" stroke="#26D07C" stroke-width="2"/>
+                                    <path d="M32 24V40" stroke="#26D07C" stroke-width="2"/>
+                                    <path d="M32 24L20 16" stroke="#26D07C" stroke-width="2"/>
+                                </svg>
+                                <span class="logo-label">Vector marks</span>
+                            </div>
+
+                            <div class="logo-card" data-card="vector-marks-alt">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="32" cy="32" r="20" stroke="#A6B8B1" stroke-width="2"/>
+                                    <path d="M32 16L24 28H40L32 16Z" fill="none" stroke="#A6B8B1" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M28 32L32 40L36 32" fill="none" stroke="#A6B8B1" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="logo-label">Vector marks</span>
+                            </div>
+
+                            <div class="logo-card" data-card="logo-lines" style="background: rgba(38, 208, 124, 0.08);">
+                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 24L24 16L32 24L40 16L48 24" stroke="#26D07C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 40L24 32L32 40L40 32L48 40" stroke="#26D07C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="logo-label">Logo orlines</span>
+                            </div>
+
+                            <div class="logo-card" data-card="wordmarks">
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" stroke="#26D07C" stroke-width="1.5"/>
+                                    </svg>
+                                    <span style="font-size: 16px; font-weight: 600; color: var(--color-text-primary);">SiteSketch</span>
+                                </div>
+                                <span class="logo-label">Wordmarks</span>
+                            </div>
+
+                            <div class="logo-card" data-card="wordmark-alt">
+                                <svg width="64" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 12L24 8L32 12V28L24 32L16 28V12Z" fill="rgba(38, 208, 124, 0.15)" stroke="#26D07C" stroke-width="1.5"/>
+                                    <text x="40" y="28" fill="#EAF5F0" font-size="18" font-weight="600" font-family="Inter">Brandmark</text>
+                                </svg>
+                                <span class="logo-label">Wordmark</span>
+                            </div>
+
+                            <div class="logo-card" data-card="wordmarks-final">
+                                <svg width="64" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 12L24 8L32 12V28L24 32L16 28V12Z" fill="rgba(38, 208, 124, 0.15)" stroke="#26D07C" stroke-width="1.5"/>
+                                    <text x="40" y="28" fill="#EAF5F0" font-size="18" font-weight="600" font-family="Inter">Wordmarks</text>
+                                </svg>
+                                <span class="logo-label">Wordmarks</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Color Palettes Section -->
+                <section class="asset-section" aria-labelledby="color-palettes-heading">
+                    <div class="section-header">
+                        <h2 id="color-palettes-heading">Color Palettes</h2>
+                        <span class="section-label">Emerald label</span>
+                    </div>
+                    <div class="palette-grid">
+                        <div class="palette-card">
+                            <div class="color-swatches">
+                                <div class="color-swatch" style="background: #2A0606;">
+                                    <span>#2A0606</span>
+                                </div>
+                                <div class="color-swatch" style="background: #200903;">
+                                    <span>#200903</span>
+                                </div>
+                                <div class="color-swatch" style="background: #EEFFEF;">
+                                    <span>#EEFFEF</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="palette-card">
+                            <div class="color-swatches">
+                                <div class="color-swatch" style="background: #2A0A0A;">
+                                    <span>#2A0A0A</span>
+                                </div>
+                                <div class="color-swatch" style="background: #609690;">
+                                    <span>#609690</span>
+                                </div>
+                                <div class="color-swatch" style="background: #A0A5A0;">
+                                    <span>#A0A5A0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="palette-card">
+                            <div class="color-swatches">
+                                <div class="color-swatch" style="background: #3A1036;">
+                                    <span>#3A1036</span>
+                                </div>
+                                <div class="color-swatch" style="background: #308006;">
+                                    <span>#308006</span>
+                                </div>
+                                <div class="color-swatch" style="background: #EEFFEF;">
+                                    <span>#EEFFEF</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="palette-card">
+                            <div class="color-swatches">
+                                <div class="color-swatch" style="background: #22A019;">
+                                    <span>#22A019</span>
+                                </div>
+                                <div class="color-swatch" style="background: #668636;">
+                                    <span>#668636</span>
+                                </div>
+                                <div class="color-swatch" style="background: #67FFF0;">
+                                    <span>#67FFF0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography Section -->
+                <section class="asset-section" aria-labelledby="typography-heading">
+                    <div class="section-header">
+                        <h2 id="typography-heading">Typography</h2>
+                        <span class="section-label">Emerald label</span>
+                    </div>
+                    <div class="typography-grid">
+                        <div class="typography-card">
+                            <div class="typography-header">
+                                <h3>Heading style</h3>
+                                <span class="type-badge">Heading</span>
+                            </div>
+                            <div class="typography-sample">
+                                <div class="type-heading">Heading A</div>
+                                <div class="type-subheading">Sample text</div>
+                                <div class="type-detail">Medium</div>
+                                <div class="type-sample-text">Sample text</div>
+                                <div class="type-detail">Weight: 35sem</div>
+                                <div class="type-body-text">Body text</div>
+                                <div class="type-detail">Size: 16"</div>
+                            </div>
+                        </div>
+
+                        <div class="typography-card">
+                            <div class="typography-header">
+                                <h3>Heading style</h3>
+                                <span class="type-badge">Heading</span>
+                            </div>
+                            <div class="typography-sample">
+                                <div class="type-sample-text">Sample text</div>
+                                <div class="type-subheading">Sample text</div>
+                                <div class="type-detail">Medium</div>
+                                <div class="type-sample-text">Sample text</div>
+                                <div class="type-detail">Weight: Sem</div>
+                                <div class="type-body-text">Body text</div>
+                                <div class="type-detail">Size: 18"</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Social Image Mockups Section -->
+                <section class="asset-section" aria-labelledby="social-mockups-heading">
+                    <div class="section-header">
+                        <h2 id="social-mockups-heading">Social Image Mockups</h2>
+                        <span class="section-label">Brand overlay</span>
+                    </div>
+                    <div class="mockups-grid">
+                        <div class="mockup-card">
+                            <div class="mockup-header">Square format</div>
+                            <div class="mockup-preview">
+                                <div class="mockup-logo">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" stroke="#26D07C" stroke-width="1.5"/>
+                                    </svg>
+                                    <span>SiteSketch</span>
+                                </div>
+                                <div class="mockup-content">
+                                    <h3>Brand overlay Mockups</h3>
+                                    <p>Create stunning social media graphics that match your brand identity and showcase...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mockup-card">
+                            <div class="mockup-header">Wide format</div>
+                            <div class="mockup-preview">
+                                <div class="mockup-logo">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" stroke="#26D07C" stroke-width="1.5"/>
+                                    </svg>
+                                    <span>SiteSketch</span>
+                                </div>
+                                <div class="mockup-content">
+                                    <h3>Brand overlay Mockups</h3>
+                                    <p>Create stunning social media graphics that match your brand identity and showcase...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Summary Sidebar -->
+            <aside class="summary-sidebar" aria-labelledby="summary-heading">
+                <div class="summary-card">
+                    <h3 id="summary-heading">Summary</h3>
+                    <p>Export your logo previews.</p>
+                    <div class="summary-actions">
+                        <button class="btn-download" aria-label="Download SVG files">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download SVG
+                        </button>
+                        <button class="btn-export" aria-label="Export complete brand kit">Export kit</button>
+                    </div>
+                    <div class="theme-toggle">
+                        <span>Light/Dark Variant</span>
+                        <div class="toggle-switch" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle light/dark theme" data-toggle="theme"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+            </ul>
+            <ul class="footer-social">
+                <li>
+                    <a href="https://twitter.com" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+    <script>
+        (function () {
+            // Micro, page-scoped initialization and integrity checks to complement global app.js
+            function emitSitesketch(eventName, detail) {
+                try {
+                    document.dispatchEvent(new CustomEvent(eventName, { detail: detail }));
+                } catch (e) {
+                    // no-op
+                }
+            }
+
+            function runIntegrityChecks() {
+                var errors = [];
+                var page = document.body && document.body.getAttribute('data-page');
+                if (!page) {
+                    errors.push('Missing body[data-page] attribute');
+                }
+
+                var nav = document.querySelector('nav[data-nav]');
+                if (!nav) {
+                    errors.push('Missing [data-nav] element');
+                } else {
+                    var links = nav.querySelectorAll('[data-nav-link]');
+                    if (!links || links.length === 0) {
+                        errors.push('No [data-nav-link] elements found inside [data-nav]');
+                    }
+                }
+
+                var login = document.querySelector('[data-login-link]');
+                if (!login) {
+                    errors.push('Missing [data-login-link] element');
+                } else {
+                    var href = login.getAttribute('href') || '';
+                    if (href !== 'brand_setup.html') {
+                        errors.push('[data-login-link] href must be "brand_setup.html" (found "' + href + '")');
+                    }
+                }
+
+                if (errors.length) {
+                    emitSitesketch('sitesketch:integrity:fail', { errors: errors });
+                }
+                return errors;
+            }
+
+            function initCardBehavior() {
+                var cards = document.querySelectorAll('[data-card]');
+                if (!cards || cards.length === 0) {
+                    // still emit as helpful information but do not block
+                    emitSitesketch('sitesketch:card:init:empty', {});
+                    return;
+                }
+
+                cards.forEach(function(card) {
+                    // Ensure ARIA and keyboard focus
+                    if (!card.hasAttribute('role')) card.setAttribute('role', 'button');
+                    if (!card.hasAttribute('tabindex')) card.tabIndex = 0;
+                    if (!card.hasAttribute('aria-pressed')) card.setAttribute('aria-pressed', 'false');
+
+                    // Click handler - single-select behavior
+                    function selectThis() {
+                        cards.forEach(function(c) {
+                            c.classList.remove('is-selected');
+                            c.setAttribute('aria-pressed', 'false');
+                        });
+                        card.classList.add('is-selected');
+                        card.setAttribute('aria-pressed', 'true');
+
+                        emitSitesketch('sitesketch:card:select', {
+                            id: card.dataset.card || null,
+                            selected: true,
+                            element: card
+                        });
+                    }
+
+                    card.addEventListener('click', selectThis);
+
+                    card.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            selectThis();
+                        }
+                    });
+                });
+            }
+
+            function initToggleBehavior() {
+                var toggles = document.querySelectorAll('[data-toggle]');
+                if (!toggles || toggles.length === 0) {
+                    emitSitesketch('sitesketch:toggle:init:empty', {});
+                    return;
+                }
+
+                toggles.forEach(function(toggle) {
+                    // Ensure accessible attributes
+                    if (!toggle.hasAttribute('role')) toggle.setAttribute('role', 'switch');
+                    if (!toggle.hasAttribute('tabindex')) toggle.tabIndex = 0;
+                    // Normalize initial aria-checked based on class or attribute
+                    var initChecked = (toggle.classList.contains('is-on') || toggle.getAttribute('aria-checked') === 'true');
+                    toggle.setAttribute('aria-checked', initChecked ? 'true' : 'false');
+                    toggle.classList.toggle('is-on', initChecked);
+
+                    function apply(checked) {
+                        toggle.classList.toggle('is-on', checked);
+                        toggle.setAttribute('aria-checked', checked ? 'true' : 'false');
+                        // emit standardized event
+                        emitSitesketch('sitesketch:toggle:change', {
+                            name: toggle.dataset.toggle || null,
+                            checked: checked,
+                            element: toggle
+                        });
+                    }
+
+                    toggle.addEventListener('click', function () {
+                        var now = toggle.classList.contains('is-on') ? false : true;
+                        apply(now);
+                    });
+
+                    toggle.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            var now = toggle.classList.contains('is-on') ? false : true;
+                            apply(now);
+                        }
+                    });
+                });
+            }
+
+            // Attempt to call the global SiteSketch.initAll once the global is available.
+            function callGlobalInitAllOnce() {
+                var attempts = 0;
+                var maxAttempts = 40; // ~2s
+                function tryInit() {
+                    attempts++;
+                    if (window.SiteSketch && typeof window.SiteSketch.initAll === 'function') {
+                        // Avoid double-initializing if another script already set a flag
+                        if (!window.SiteSketch.__pageInitCalled) {
+                            window.SiteSketch.__pageInitCalled = true;
+                            try {
+                                window.SiteSketch.initAll();
+                            } catch (e) {
+                                // swallow to avoid breaking page scripts
+                                console.error('SiteSketch.initAll() threw:', e);
+                            }
+                        }
+                        return;
+                    }
+                    if (attempts < maxAttempts) {
+                        setTimeout(tryInit, 50);
+                    } else {
+                        // If not present after waiting, emit a helpful event
+                        emitSitesketch('sitesketch:integrity:warn', { message: 'Global SiteSketch API not available after wait.' });
+                    }
+                }
+                tryInit();
+            }
+
+            // Entrypoint after DOM ready
+            document.addEventListener('DOMContentLoaded', function () {
+                var errors = runIntegrityChecks();
+                // Initialize page-specific behaviors regardless of non-critical integrity failures;
+                // integrity failures are emitted for monitoring but do not fully block UX.
+                initCardBehavior();
+                initToggleBehavior();
+
+                // Ensure global initAll is invoked once whe
