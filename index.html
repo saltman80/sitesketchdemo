@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SiteSketch AI - Instantly create professional brand identities and fully functional websites using advanced artificial intelligence.">
+    <title>SiteSketch AI - Generate Brands & Websites with AI</title>
+    <link rel="canonical" href="https://sitesketch.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-base: #0B1112;
+            --color-elevated: #0F1A1A;
+            --color-card: #122324;
+            --color-border: #1F3A35;
+            --color-accent: #26D07C;
+            --color-accent-hover: #1FB46B;
+            --color-accent-tint: rgba(38, 208, 124, 0.12);
+            --color-text-primary: #EAF5F0;
+            --color-text-secondary: #A6B8B1;
+            --color-text-disabled: #6E807A;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-base);
+            color: var(--color-text-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 8px 16px;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 8px;
+            left: 8px;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            background: var(--color-elevated);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .nav-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-logo .ai-text {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+            flex: 1;
+            margin-left: 48px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: var(--color-text-primary);
+            padding: 8px 20px;
+            height: 40px;
+        }
+
+        .btn-login:hover {
+            color: var(--color-accent);
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-base);
+            padding: 12px 24px;
+            height: 44px;
+            box-shadow: 0 0 24px rgba(38, 208, 124, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            box-shadow: 0 0 32px rgba(38, 208, 124, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            padding: 12px 24px;
+            height: 44px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 80px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--color-text-primary);
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .hero-visual {
+            background: linear-gradient(135deg, rgba(38, 208, 124, 0.08) 0%, rgba(15, 26, 26, 0.4) 100%);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.3), transparent);
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+        }
+
+        /* Brand Assets Section */
+        .brand-assets {
+            max-width: 1120px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--color-elevated) 0%, var(--color-card) 100%);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .asset-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .asset-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .asset-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .asset-content {
+            background: rgba(11, 17, 18, 0.6);
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .logo-variants {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .logo-variant {
+            background: rgba(11, 17, 18, 0.8);
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-variant svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-variant.dark {
+            background: rgba(11, 17, 18, 0.95);
+        }
+
+        .logo-variant.accent {
+            background: rgba(38, 208, 124, 0.15);
+        }
+
+        .logo-variant.light {
+            background: rgba(234, 245, 240, 0.95);
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 8px;
+            border: 1px solid rgba(31, 58, 53, 0.5);
+        }
+
+        .color-swatch span {
+            font-size: 10px;
+            font-weight: 500;
+            color: rgba(234, 245, 240, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .typography-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .typography-content .type-large {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1;
+            color: var(--color-text-primary);
+        }
+
+        .typography-content .type-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .typography-content .type-body {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+        }
+
+        .guidelines-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Website Designs Section */
+        .website-designs {
+            max-width: 1120px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+
+        .website-designs h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--color-text-primary);
+        }
+
+        .designs-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .design-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .design-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .design-card-header h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        .design-card-header svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--color-accent);
+        }
+
+        .design-preview {
+            background: rgba(11, 17, 18, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .design-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .design-card.featured .design-preview {
+            min-height: 320px;
+        }
+
+        .design-card.mobile .design-preview {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .design-card.tablet .design-preview {
+            min-height: 200px;
+        }
+
+        .tablet-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            max-width: 1120px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+
+        .how-it-works h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: var(--color-text-primary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--color-accent);
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .step-visual {
+            background: rgba(11, 17, 18, 0.6);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            max-width: 1120px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+
+        .pricing h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: var(--color-text-primary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .pricing-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 32px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 208, 124, 0.2), transparent);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--color-accent);
+            background: linear-gradient(135deg, rgba(38, 208, 124, 0.05) 0%, var(--color-card) 100%);
+        }
+
+        .pricing-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .pricing-amount {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-amount .currency {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .pricing-amount .amount {
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            line-height: 1;
+        }
+
+        .pricing-amount .period {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pricing-features li::before {
+            content: '?';
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-elevated);
+            border-top: 1px solid var(--color-border);
+            margin-top: 96px;
+        }
+
+        .footer-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            transition: all 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--color-accent-tint);
+            border-color: var(--color-accent);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--color-text-secondary);
+        }
+
+        .footer-social a:hover svg {
+            stroke: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 12px 16px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-left: 0;
+                margin-top: 16px;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 48px 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .asset-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .designs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tablet-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body data-page="index">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="nav-wrapper">
+        <nav role="navigation" aria-label="Main navigation" data-nav>
+            <a href="index.html" class="nav-logo" aria-label="SiteSketch AI Home">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L26 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16V28" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 16L6 10" stroke="#26D07C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>SiteSketch <span class="ai-text">AI</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" data-nav-link aria-current="page">Home</a></li>
+                <li><a href="brand_setup.html" data-nav-link>Brand Setup</a></li>
+                <li><a href="brand_assets.html" data-nav-link>Brand Assets</a></li>
+                <li><a href="website_generator.html" data-nav-link>Website Generator</a></li>
+                <li><a href="update_website.html" data-nav-link>Update Website</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="brand_setup.html" class="btn btn-login" data-login-link aria-label="Login to your account">Login</a>
+                <a href="website_generator.html" class="btn btn-primary" data-primary-cta aria-label="Get started with SiteSketch AI">Get Started</a>
+            </div>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <h1 id="hero-heading">Generate Brands & Websites with AI</h1>
+                <p>Instantly create professional brand identities and fully functional websites using advanced artificial intelligence.</p>
+                <button class="btn btn-primary">Start Creating Now</button>
+            </div>
+            <div class="hero-visual" role="img" aria-label="AI-powered brand and website generation visualization">
+                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central AI Core -->
+                    <rect x="150" y="100" width="100" height="80" rx="8" fill="rgba(38, 208, 124, 0.1)" stroke="#26D07C" stroke-width="2"/>
+                    <text x="200" y="145" text-anchor="middle" fill="#26D07C" font-size="32" font-weight="600" font-family="Inter">AI</text>
+                    
+                    <!-- Connected nodes -->
+                    <circle cx="80" cy="80" r="20" fill="rgba(38, 208, 124, 0.05)" stroke="#26D07C" stroke-width="1.5"/>
+                    <rect x="65" y="65" width="30" height="30" rx="4" fill="none" stroke="#26D07C" stroke-width="1.5"/>
+                    
+                    <circle cx="320" cy="80" r="20" fill="rgba(38, 208, 124, 0.05)" stroke="#26D07C" stroke-width="1.5"/>
+                    <rect x="305" y="65" width="30" height="30" rx="4" fill="none" stroke="#26D07C" stroke-width="1.5"/>
+                    <path d="M310 75 L320 80 L310 85" stroke="#26D07C" stroke-width="1.5" fill="none"/>
+                    
+                    <circle cx="80" cy="220" r="20" fill="rgba(38, 208, 124, 0.05)" stroke="#26D07C" stroke-width="1.5"/>
+                    <circle cx="75" cy="215" r="4" fill="#26D07C"/>
+                    <circle cx="85" cy="215" r="4" fill="#26D07C"/>
+                    <circle cx="75" cy="225" r="4" fill="#26D07C"/>
+                    <circle cx="85" cy="225" r="4" fill="#26D07C"/>
+                    
+                    <circle cx="320" cy="220" r="20" fill="rgba(38, 208, 124, 0.05)" stroke="#26D07C" stroke-width="1.5"/>
+                    <rect x="308" y="208" width="24" height="24" rx="2" fill="none" stroke="#26D07C" stroke-width="1.5"/>
+                    
+                    <!-- Connection lines -->
+                    <line x1="100" y1="80" x2="150" y2="120" stroke="#26D07C" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+                    <line x1="300" y1="80" x2="250" y2="120" stroke="#26D07C" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+                    <line x1="100" y1="220" x2="150" y2="160" stroke="#26D07C" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+                    <line x1="300" y1="220" x2="250" y2="160" stroke="#26D07C" stroke-width="1" opacity="0.4" stroke-dasharray="2,2"/>
+                    
+                    <!-- Floating elements -->
+                    <circle cx="200" cy="60" r="3" fill="#26D07C" opacity="0.6"/>
+                    <circle cx="140" cy="200" r="2" fill="#26D07C" opacity="0.4"/>
+                    <circle cx="260" cy="200" r="2" fill="#26D07C" opacity="0.4"/>
+                    <circle cx="120" cy="140" r="2" fill="#26D07C" opacity="0.5"/>
+                    <circle cx="280" cy="140" r="2" fill="#26D07C" opacity="0.5"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="brand-assets" aria-labelledby="brand-assets-heading">
+            <div class="section-header">
+                <h2 id="brand-assets-heading">Generated Brand Assets</h2>
+            </div>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <h3>Logo Design</h3>
+                    <div class="asset-content">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 10L15 23.75V51.25L40 65L65 51.25V23.75L40 10Z" stroke="#26D07C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M40 40L65 26.25" stroke="#26D07C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M40 40V65" stroke="#26D07C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M40 40L15 26.25" stroke="#26D07C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="logo-variants">
+                        <div class="logo-variant dark">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#EAF5F0" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="logo-variant accent">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#26D07C" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="logo-variant light">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L6 9.5V22.5L16 28L26 22.5V9.5L16 4Z" stroke="#0B1112" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <h3>Color Palette</h3>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #0B1112;">
+                            <span>0B1112</span>
+                        </div>
+                        <div class="color-swatch" style="background: #122324;">
+                            <span>122324</span>
+                        </div>
+                        <div class="color-swatch" style="background: #1F3A35;">
+                            <span>1F3A35</span>
+                        </div>
+                        <div class="color-swatch" style="background: #26D07C;">
+                            <span>26D07C</span>
+                        </div>
+                        <div class="color-swatch" style="background: #6E807A;">
+                            <span>6E807A</span>
+                        </div>
+                        <div class="color-swatch" style="background: #A6B8B1;">
+                            <span>A6B8B1</span>
+                        </div>
+                        <div class="color-swatch" style="background: #EAF5F0;">
+                            <span>EAF5F0</span>
+                        </div>
+                        <div class="color-swatch" style="background: #FFFFFF;">
+                            <span>FFFFFF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <h3>Typography</h3>
+                    <div class="asset-content">
+                        <div class="typography-content">
+                            <div class="type-large">Aa</div>
+                            <div class="type-title">Typography</div>
+                            <div class="type-body">Typography</div>
+                            <div class="type-body">Typography</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="asset-card">
+                    <h3>Brand Guidelines</h3>
+                    <div class="asset-content">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" alt="Brand guidelines document preview" class="guidelines-preview" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="website-designs" aria-labelledby="website-designs-heading">
+            <h2 id="website-designs-heading">Website Designs</h2>
+            <div class="designs-grid">
+                <div class="design-card featured">
+                    <div class="design-card-header">
+                        <h3>Featured Designs</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="design-preview">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop" alt="Featured desktop website design showcase" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="design-card mobile">
+                    <div class="design-card-header">
+                        <h3>Mobile</h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2"/>
+                            <line x1="12" y1="18" x2="12" y2="18"/>
+                        </svg>
+                    </div>
+                    <div class="design-preview">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=800&fit=crop" alt="Mobile website design preview" loading="lazy" style="max-width: 200px;">
+                    </div>
+                </div>
+
+                <div class="tablet-grid">
+                    <div class="design-card tablet">
+                        <div class="design-card-header">
+                            <h3>Tablet</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                <line x1="12" y1="18" x2="12" y2="18"/>
+                            </svg>
+                        </div>
+                        <div class="design-preview">
+                            <img src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?w=600&h=400&fit=crop" alt="Tablet website design layout" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="design-card tablet">
+                        <div class="design-card-header">
+                            <h3>Tablet</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                <line x1="12" y1="18" x2="12" y2="18"/>
+                            </svg>
+                        </div>
+                        <div class="design-preview">
+                            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&h=400&fit=crop" alt="Tablet alternative website design" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" aria-labelledby="how-it-works-heading">
+            <h2 id="how-it-works-heading">How It Works</h2>
+            <div class="steps-grid">
+                <article class="step-card">
+                    <div class="step-number">1.</div>
+                    <div class="step-visual" role="img" aria-label="Input your vision step illustration">
+                        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="100" height="60" rx="4" stroke="#26D07C" stroke-width="2" fill="rgba(38, 208, 124, 0.05)"/>
+                            <line x1="20" y1="25" x2="70" y2="25" stroke="#26D07C" stroke-width="2" opacity="0.6"/>
+                            <line x1="20" y1="35" x2="90" y2="35" stroke="#26D07C" stroke-width="2" opacity="0.6"/>
+                            <line x1="20" y1="45" x2="60" y2="45" stroke="#26D07C" stroke-width="2" opacity="0.6"/>
+                            <line x1="20" y1="55" x2="80" y2="55" stroke="#26D07C" stroke-width="2" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>1. Input Your Vision</h3>
+                        <p>Describe your brand and website needs in simple, natural language.</p>
+                    </div>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">2.</div>
+                    <div class="step-visual" role="img" aria-label="AI generation process illustration">
+                        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="60" cy="40" r="25" stroke="#26D07C" stroke-width="2" fill="rgba(38, 208, 124, 0.05)"/>
+                            <path d="M60 20 L60 60 M40 40 L80 40" stroke="#26D07C" stroke-width="2"/>
+                            <circle cx="35" cy="25" r="8" stroke="#26D07C" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="85" cy="25" r="8" stroke="#26D07C" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="35" cy="55" r="8" stroke="#26D07C" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="85" cy="55" r="8" stroke="#26D07C" stroke-width="1.5" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>2. AI Generation</h3>
+                        <p>Our advanced AI creates your complete brand identity and website in seconds.</p>
+                    </div>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">3.</div>
+                    <div class="step-visual" role="img" aria-label="Customize and launch illustration">
+                        <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="15" width="80" height="50" rx="4" stroke="#26D07C" stroke-width="2" fill="rgba(38, 208, 124, 0.05)"/>
+                            <line x1="30" y1="30" x2="60" y2="30" stroke="#26D07C" stroke-width="2"/>
+                            <line x1="30" y1="40" x2="70" y2="40" stroke="#26D07C" stroke-width="2"/>
+                            <line x1="30" y1="50" x2="55" y2="50" stroke="#26D07C" stroke-width="2"/>
+                            <rect x="75" y="35" width="15" height="15" rx="2" fill="#26D07C" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="step-content">
+                        <h3>3. Customize & Launch</h3>
+                        <p>Fine-tune your design, make adjustments, and launch your professional website.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="pricing" aria-labelledby="pricing-heading">
+            <h2 id="pricing-heading">Pricing Plans</h2>
+            <div class="pricing-grid">
+                <article class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="amount">10</span>
+                        <span class="period">/mo</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Core brand features</li>
+                        <li>Minimum features</li>
+                        <li>Monitor features</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+                </article>
+
+                <article class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="amount">200</span>
+                        <span class="period">/mo</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Professional features</li>
+                        <li>Macro-resolution scorecards</li>
+                        <li>Progressional credentials</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;">Get Started</button>
+                </article>
+
+                <article class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="amount">1,500</span>
+                        <span class="period">/mo</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Professional features</li>
+                        <li>Comprehensive features</li>
+                        <li>Customizable announcement</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+            </ul>
+            <ul class="footer-social">
+                <li>
+                    <a href="https://twitter.com" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://facebook.com" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+    <script>
+        // Defer inline behaviors until DOMContentLoaded so app.js (deferred) can initialize first and avoid duplicate handlers
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth scroll for anchor links (lightweight, idempotent)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Add loading state for images (fade-in)
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
