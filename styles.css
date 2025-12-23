@@ -334,6 +334,7 @@ section {
   display: flex;
   align-items: center;
   gap: var(--space-24);
+  flex-wrap: nowrap;
   width: 100%;
 }
 
@@ -383,7 +384,6 @@ section {
   margin-left: 0;
   padding: 0;
   flex-wrap: nowrap;
-  overflow: hidden;
 }
 
 .nav-links li {
@@ -396,6 +396,7 @@ section {
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
