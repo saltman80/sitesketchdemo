@@ -354,6 +354,14 @@ section {
   white-space: nowrap;
 }
 
+/* Force nav logo SVG to behave like an icon, not a responsive image */
+.nav-logo svg {
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  flex: 0 0 24px;
+}
+
 .nav-logo-mark {
   width: 24px;
   height: 24px;
