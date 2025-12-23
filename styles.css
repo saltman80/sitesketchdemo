@@ -141,7 +141,8 @@ body {
 .nav-container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-16) var(--space-24);
+  padding: var(--space-20) var(--space-24);
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,14 +179,16 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-24);
-  margin-left: auto;
+  flex: 1;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-24);
+  flex: 1;
   margin: 0;
   padding: 0;
 }
@@ -208,6 +211,7 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-12);
+  margin-left: auto;
 }
 
 .nav-toggle {
