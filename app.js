@@ -399,6 +399,42 @@
     }
 
     // =====================
+    // Primary Navigation (mobile toggle + active link)
+    // =====================
+    function initPrimaryNav() {
+        document.querySelectorAll('.nav-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                var navId = this.getAttribute('aria-controls');
+                var nav = navId ? document.getElementById(navId) : null;
+                if (!nav) return;
+                var isOpen = nav.classList.toggle('is-open');
+                this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        });
+
+        document.querySelectorAll('.site-nav').forEach(function(nav) {
+            nav.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth > 900) return;
+                    nav.classList.remove('is-open');
+                    var toggle = document.querySelector('.nav-toggle[aria-controls="' + nav.id + '"]');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+
+        var current = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (!href) return;
+            if (href === current) {
+                link.classList.add('is-active');
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+    }
+
+    // =====================
     // Initialize All Features (public)
     // =====================
     SiteSketch.initAll = function() {
@@ -416,6 +452,7 @@
         initKeyboardNav();
         initStyleSelector();
         initSkipLinks();
+        initPrimaryNav();
 
         SiteSketch.emit('sitesketch:app:initialized', {});
     };
