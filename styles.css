@@ -350,12 +350,15 @@ section {
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.nav-logo svg {
+.nav-logo-mark {
   width: 24px;
   height: 24px;
-  max-width: none;
+  max-width: 24px;
+  display: inline-block;
   flex-shrink: 0;
 }
 
@@ -374,6 +377,10 @@ section {
   margin: 0;
   margin-inline: auto;
   padding: 0;
+}
+
+.nav-links li {
+  margin: 0;
 }
 
 .nav-links a,
