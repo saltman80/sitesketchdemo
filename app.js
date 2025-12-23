@@ -181,6 +181,36 @@
     }
 
     // =====================
+    // Mobile Navigation Toggle
+    // =====================
+    function initNavToggle() {
+        var toggles = document.querySelectorAll('.nav-toggle');
+        if (!toggles.length) return;
+
+        toggles.forEach(function(toggle) {
+            var nav = toggle.closest('nav');
+            if (!nav) return;
+
+            toggle.addEventListener('click', function() {
+                var isOpen = nav.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 640) {
+                document.querySelectorAll('nav.nav-open').forEach(function(nav) {
+                    nav.classList.remove('nav-open');
+                    var toggle = nav.querySelector('.nav-toggle');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    }
+
+    // =====================
     // Login link routing normalization
     // Ensure Login always goes to brand_setup.html
     // =====================
@@ -526,6 +556,7 @@
         initStyleSelector();
         initSkipLinks();
         initLoginLinks();
+        initNavToggle();
 
         SiteSketch.emit('sitesketch:app:initialized', {});
     };
