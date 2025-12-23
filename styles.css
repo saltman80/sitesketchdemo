@@ -45,6 +45,7 @@
   --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
+  --space-20: 20px;
   --space-24: 24px;
   --space-32: 32px;
   --space-48: 48px;
@@ -135,19 +136,19 @@ body {
 }
 
 .site-header + main {
-  padding-top: 96px;
+  padding-top: 112px;
 }
 
 .nav-container {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-20) var(--space-24);
-  min-height: 96px;
+  padding: var(--space-20) var(--space-32);
+  min-height: 104px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-24);
+  justify-content: space-between;
+  gap: var(--space-32);
   flex-wrap: nowrap;
 }
 
@@ -185,10 +186,11 @@ body {
 }
 
 .site-nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: var(--space-24);
-  flex: 0 1 auto;
+  gap: var(--space-32);
+  flex: 1;
   justify-content: center;
   flex-wrap: nowrap;
   min-width: 0;
@@ -199,20 +201,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-24);
+  gap: var(--space-32);
   flex: 0 1 auto;
   flex-wrap: nowrap;
   margin: 0;
   padding: 0;
+  justify-self: center;
 }
 
 .nav-links a {
   color: var(--color-text-secondary);
   font-weight: var(--font-weight-medium);
-  padding: 6px 10px;
+  font-size: 15px;
+  padding: 8px 14px;
   border-radius: var(--border-radius-full);
   border: 1px solid transparent;
   white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-text-primary);
+  background: rgba(38, 208, 124, 0.08);
+  border-color: rgba(38, 208, 124, 0.2);
+  transform: translateY(-1px);
 }
 
 .nav-links a.is-active {
@@ -225,7 +237,8 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-12);
-  margin-left: var(--space-24);
+  margin-left: auto;
+  justify-self: end;
 }
 
 .nav-toggle {
@@ -264,7 +277,7 @@ body {
 
 @media (max-width: 900px) {
   .site-header + main {
-    padding-top: 88px;
+    padding-top: 104px;
   }
 
   .nav-toggle {
@@ -278,6 +291,7 @@ body {
     top: 100%;
     background: var(--color-elevated);
     border-bottom: 1px solid var(--color-border);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0 var(--space-24);
