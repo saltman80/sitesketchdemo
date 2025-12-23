@@ -713,33 +713,6 @@
 <body data-page="brandAssets">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="nav-wrapper">
-        <nav role="navigation" aria-label="Main navigation" data-nav>
-            <a href="index.html" class="nav-logo" aria-label="SiteSketch AI Home">
-                <span>SiteSketch <span class="ai-text">AI</span></span>
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
-                <span class="nav-toggle-icon" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                <span class="nav-toggle-label">Menu</span>
-            </button>
-            <ul class="nav-links" id="primary-navigation">
-                <li><a href="index.html" data-nav-link>Home</a></li>
-                <li><a href="brand_setup.html" data-nav-link>Setup</a></li>
-                <li><a href="brand_assets.html" class="active" data-nav-link>Assets</a></li>
-                <li><a href="website_generator.html" data-nav-link>Generator</a></li>
-                <li><a href="update_website.html" data-nav-link>Update</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a class="btn btn-login" href="brand_setup.html" data-login-link aria-label="Login to your account">Login</a>
-                <button class="btn btn-primary" aria-label="Get started with SiteSketch AI" data-primary-cta>Get Started</button>
-            </div>
-        </nav>
-    </div>
-
     <main id="main-content">
         <section class="hero-section">
             <div class="hero-header">
@@ -1058,26 +1031,6 @@
                 var page = document.body && document.body.getAttribute('data-page');
                 if (!page) {
                     errors.push('Missing body[data-page] attribute');
-                }
-
-                var nav = document.querySelector('nav[data-nav]');
-                if (!nav) {
-                    errors.push('Missing [data-nav] element');
-                } else {
-                    var links = nav.querySelectorAll('[data-nav-link]');
-                    if (!links || links.length === 0) {
-                        errors.push('No [data-nav-link] elements found inside [data-nav]');
-                    }
-                }
-
-                var login = document.querySelector('[data-login-link]');
-                if (!login) {
-                    errors.push('Missing [data-login-link] element');
-                } else {
-                    var href = login.getAttribute('href') || '';
-                    if (href !== 'brand_setup.html') {
-                        errors.push('[data-login-link] href must be "brand_setup.html" (found "' + href + '")');
-                    }
                 }
 
                 if (errors.length) {

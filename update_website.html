@@ -577,35 +577,6 @@
 <body data-page="updateWebsite">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="nav-wrapper">
-        <nav data-nav role="navigation" aria-label="Main navigation">
-            <a href="index.html" class="nav-logo" aria-label="SiteSketch AI Home" data-nav-link>
-                <span>SiteSketch <span class="ai-text">AI</span></span>
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
-                <span class="nav-toggle-icon" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-                <span class="nav-toggle-label">Menu</span>
-            </button>
-            <ul class="nav-links" id="primary-navigation">
-                <li><a href="index.html" data-nav-link>Home</a></li>
-                <li><a href="brand_setup.html" data-nav-link>Setup</a></li>
-                <li><a href="brand_assets.html" data-nav-link>Assets</a></li>
-                <li><a href="website_generator.html" data-nav-link>Generator</a></li>
-                <li><a href="update_website.html" class="active" aria-current="page" data-nav-link>Update</a></li>
-                <!-- Hidden compatibility link so app.js integrity check (which compares href === body[data-page]) can find a matching href -->
-                <li class="hidden" aria-hidden="true"><a href="updateWebsite" data-nav-link>updateWebsite</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a data-login-link href="brand_setup.html" class="btn btn-login" aria-label="Login to your account">Login</a>
-                <button class="btn btn-primary" data-primary-cta aria-label="Get started with SiteSketch AI">Get Started</button>
-            </div>
-        </nav>
-    </div>
-
     <main id="main-content">
         <section class="hero" aria-labelledby="page-heading">
             <h1 id="page-heading">Update Existing Website</h1>
@@ -806,23 +777,6 @@
     </footer>
 
     <script>
-        // Nav aria-current baseline (use body[data-page] when available).
-        (function() {
-            const pageId = document.body.getAttribute('data-page') || '';
-            const currentPageFile = window.location.pathname.split('/').pop() || 'index.html';
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                const href = link.getAttribute('href') || '';
-
-                // If href matches the canonical filename OR matches the body[data-page] value, set aria-current
-                if (href === currentPageFile || (pageId && href === pageId)) {
-                    link.setAttribute('aria-current', 'page');
-                } else {
-                    link.removeAttribute('aria-current');
-                }
-            });
-        })();
-
         // Expand/collapse changes ? toggle the .hidden helper class (more robust than toggling inline display)
         document.querySelector('.changes-header')?.addEventListener('click', function() {
             const icon = this.querySelector('.expand-icon');
