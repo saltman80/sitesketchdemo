@@ -9,15 +9,6 @@
     // Public API container
     var SiteSketch = {};
 
-    // Small mapping of body[data-page] -> filename used for robust nav matching
-    var PAGE_MAP = {
-        index: 'index.html',
-        brandSetup: 'brand_setup.html',
-        brandAssets: 'brand_assets.html',
-        websiteGenerator: 'website_generator.html',
-        updateWebsite: 'update_website.html'
-    };
-
     // Event emitter used by the component (exposed via SiteSketch.emit)
     SiteSketch.emit = function(eventName, detail) {
         try {
@@ -62,46 +53,6 @@
             errors.push('Missing body[data-page] attribute');
         }
 
-        // data-nav and data-nav-link presence and link matching page (use PAGE_MAP)
-        var nav = document.querySelector('[data-nav]');
-        if (!nav) {
-            errors.push('Missing [data-nav] element');
-        } else {
-            var navLinks = nav.querySelectorAll('[data-nav-link]');
-            if (!navLinks || navLinks.length === 0) {
-                errors.push('No [data-nav-link] elements found inside [data-nav]');
-            } else if (page) {
-                var expectedHref = PAGE_MAP[page] || page;
-                var found = Array.prototype.slice.call(navLinks).some(function(link) {
-                    var href = link.getAttribute('href') || '';
-                    // match exact filename or, for robustness, compare resolved pathname's last segment
-                    if (href === expectedHref) return true;
-                    try {
-                        var a = document.createElement('a');
-                        a.href = href;
-                        var linkBasename = a.pathname.split('/').pop();
-                        return linkBasename === expectedHref;
-                    } catch (err) {
-                        return false;
-                    }
-                });
-                if (!found) {
-                    errors.push('No nav link href matches body[data-page] value: ' + page + ' (expected ' + expectedHref + ')');
-                }
-            }
-        }
-
-        // data-login-link must exist and href === 'brand_setup.html'
-        var loginLink = document.querySelector('[data-login-link]');
-        if (!loginLink) {
-            errors.push('Missing [data-login-link] element');
-        } else {
-            var loginHref = loginLink.getAttribute('href') || '';
-            if (loginHref !== 'brand_setup.html') {
-                errors.push('[data-login-link] href must be "brand_setup.html" (found "' + loginHref + '")');
-            }
-        }
-
         // data-two-panel required on updateWebsite page
         if (page === 'updateWebsite' || page === 'updateWebsite.html') {
             var twoPanel = document.querySelector('[data-two-panel]');
@@ -139,95 +90,6 @@
             return false;
         }
         return true;
-    }
-
-    // =====================
-    // Active Navigation Highlighting (reads body[data-page] and data-nav/data-nav-link selectors)
-    // =====================
-    function highlightActiveNav() {
-        var page = document.body.getAttribute('data-page');
-        var nav = document.querySelector('[data-nav]');
-        if (!nav) return;
-
-        var expectedHref = PAGE_MAP[page] || page;
-
-        nav.querySelectorAll('[data-nav-link]').forEach(function(link) {
-            var href = link.getAttribute('href') || '';
-            var match = false;
-            if (href === expectedHref) match = true;
-            else {
-                try {
-                    var a = document.createElement('a');
-                    a.href = href;
-                    var linkBasename = a.pathname.split('/').pop();
-                    if (linkBasename === expectedHref) match = true;
-                } catch (err) {
-                    match = false;
-                }
-            }
-
-            if (match) {
-                link.classList.add('is-active');
-                link.classList.add('active'); // preserve old class
-                link.setAttribute('aria-current', 'page');
-            } else {
-                link.classList.remove('is-active');
-                link.classList.remove('active');
-                link.removeAttribute('aria-current');
-            }
-        });
-
-        SiteSketch.emit('sitesketch:nav:changed', { page: page });
-    }
-
-    // =====================
-    // Mobile Navigation Toggle
-    // =====================
-    function initNavToggle() {
-        var toggles = document.querySelectorAll('.nav-toggle');
-        if (!toggles.length) return;
-
-        toggles.forEach(function(toggle) {
-            var nav = toggle.closest('nav');
-            if (!nav) return;
-
-            toggle.addEventListener('click', function() {
-                var isOpen = nav.classList.toggle('nav-open');
-                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            });
-        });
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 640) {
-                document.querySelectorAll('nav.nav-open').forEach(function(nav) {
-                    nav.classList.remove('nav-open');
-                    var toggle = nav.querySelector('.nav-toggle');
-                    if (toggle) {
-                        toggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            }
-        });
-    }
-
-    // =====================
-    // Login link routing normalization
-    // Ensure Login always goes to brand_setup.html
-    // =====================
-    function initLoginLinks() {
-        document.querySelectorAll('[data-login-link]').forEach(function(link) {
-            try {
-                // enforce href for consistency
-                link.setAttribute('href', 'brand_setup.html');
-            } catch (err) {}
-            // intercept clicks to ensure consistent navigation across environments
-            link.addEventListener('click', function(e) {
-                // allow open in new tab if modifier keys used
-                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-                e.preventDefault();
-                window.location.href = 'brand_setup.html';
-            });
-        });
     }
 
     // =====================
@@ -544,7 +406,6 @@
             return;
         }
 
-        SiteSketch.initNav();
         SiteSketch.initToggles();
         SiteSketch.initCards();
         SiteSketch.initModals();
@@ -555,14 +416,11 @@
         initKeyboardNav();
         initStyleSelector();
         initSkipLinks();
-        initLoginLinks();
-        initNavToggle();
 
         SiteSketch.emit('sitesketch:app:initialized', {});
     };
 
     // Expose granular init functions required by public API
-    SiteSketch.initNav = highlightActiveNav;
     SiteSketch.initToggles = initToggleSwitches;
     SiteSketch.initCards = initSelectableCards;
     SiteSketch.initModals = initModals;
